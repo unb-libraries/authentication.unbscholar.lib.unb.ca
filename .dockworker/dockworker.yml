@@ -1,0 +1,28 @@
+dockworker:
+  version: '5'
+  application:
+    name: authentication.unbscholar.lib.unb.ca
+    finish_marker: 'resuming normal operations'
+    project_prefix:
+      - LIB
+      - RECORDS
+    upstream_images:
+      - httpd:2-bullseye
+    uuid: 3101
+  deployment:
+    environments:
+      - prod
+    workflow:
+      source: dockworker
+      type: deployment-workflow
+  drupal:
+    major: 9
+  github:
+    repo: authentication.unbscholar.lib.unb.ca
+    owner: unb-libraries
+  image:
+    push_branches:
+      - prod
+    name: ghcr.io/unb-libraries/authentication.unbscholar.lib.unb.ca
+    date_tag_image: true
+    repository: ghcr

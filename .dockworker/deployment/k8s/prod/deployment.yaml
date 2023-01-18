@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: httpd
+    instance: authentication.unbscholar.lib.unb.ca
+    tier: auth
+    uri: authentication.unbscholar.lib.unb.ca
+  name: authentication-unbscholar-lib-unb-ca
+  namespace: prod
+spec:
+  selector:
+    matchLabels:
+      uri: authentication.unbscholar.lib.unb.ca
+  replicas: 1
+  revisionHistoryLimit: 2
+  minReadySeconds: 30
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: httpd
+        instance: authentication.unbscholar.lib.unb.ca
+        tier: auth
+        uri: authentication.unbscholar.lib.unb.ca
+    spec:
+      nodeSelector:
+        deployenv: prod
+      containers:
+        -
+          env:
+            -
+              name: DEPLOY_ENV
+              value: prod
+          image: "||DEPLOYMENTIMAGE||"
+          imagePullPolicy: Always
+          name: authentication-unbscholar-lib-unb-ca
+          ports:
+            -
+              containerPort: 80
+      priorityClassName: high-priority-services
+      imagePullSecrets:
+        -
+          name: github-container-registry-auth
+      restartPolicy: Always

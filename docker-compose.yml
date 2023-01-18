@@ -1,0 +1,19 @@
+services:
+  authentication.unbscholar.lib.unb.ca:
+    build:
+      context: .
+    restart: unless-stopped
+    container_name: authentication.unbscholar.lib.unb.ca
+    expose:
+      - "80"
+    networks:
+      - authentication.unbscholar.lib.unb.ca
+    ports:
+      - "3101:80"
+    env_file:
+      - ./env/httpd.env
+
+networks:
+  authentication.unbscholar.lib.unb.ca:
+    name: authentication.unbscholar.lib.unb.ca
+
