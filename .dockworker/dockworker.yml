@@ -2,12 +2,12 @@ dockworker:
   version: '5'
   application:
     name: authentication.unbscholar.lib.unb.ca
-    finish_marker: 'resuming normal operations'
+    finish_marker: 'Could not reliably determine the server'
     project_prefix:
-      - LIB
-      - RECORDS
+      - SCHOLAR
+    shell: /bin/bash
     upstream_images:
-      - httpd:2-bullseye
+      - ubuntu:20.04
     uuid: 3101
   deployment:
     environments:
