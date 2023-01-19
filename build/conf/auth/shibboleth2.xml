@@ -83,14 +83,14 @@
         Allows overriding of error template information/filenames. You can
         also add attributes with values that can be plugged into the templates.
         -->
-        <Errors supportContact="sample@email.com"
+        <Errors supportContact="libsystems@unb.ca"
                 helpLocation="/about.html"
                 styleSheet="/shibboleth-sp/main.css"/>
 
         <!-- Example of remotely supplied batch of signed metadata. -->
         <!--
         <MetadataProvider type="XML" validate="true"
-	      uri="http://example.org/federation-metadata.xml"
+          uri="http://example.org/federation-metadata.xml"
               backingFilePath="federation-metadata.xml" reloadInterval="7200">
             <MetadataFilter type="RequireValidUntil" maxValidityInterval="2419200"/>
             <MetadataFilter type="Signature" certificate="fedsigner.pem"/>
