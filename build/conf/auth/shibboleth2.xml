@@ -36,7 +36,7 @@
 
     <!-- The ApplicationDefaults element is where most of Shibboleth's SAML bits are defined. -->
     <!-- Placeholder is replaced by value of $APACHE_SERVER_NAME env var when http-shibd-foreground.sh runs -->
-    <ApplicationDefaults entityID="https://unbscholar.dspace.lib.unb.ca/shibboleth"
+    <ApplicationDefaults entityID="https://unbscholar.dspace.lib.unb.ca"
                          REMOTE_USER="eppn persistent-id targeted-id">
 
         <!--
