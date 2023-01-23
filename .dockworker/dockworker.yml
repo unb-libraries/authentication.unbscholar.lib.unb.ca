@@ -6,6 +6,7 @@ dockworker:
     project_prefix:
       - LIB
       - RECORDS
+    shell: /bin/bash
     upstream_images:
       - httpd:2-bullseye
     uuid: 3101
