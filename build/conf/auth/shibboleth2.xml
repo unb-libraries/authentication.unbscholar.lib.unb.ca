@@ -59,7 +59,7 @@
             You can also override entityID on /Login query string, or in RequestMap/htaccess.
             -->
             <SSO entityID="https://login.lib.unb.ca/saml2/idp"
-                 discoveryProtocol="SAMLDS" discoveryURL="https://unbscholar.dspace.lib.unb.ca/DS/WAYF">
+                 discoveryProtocol="SAMLDS" discoveryURL="https://unbscholar-dspace-lib-unb-ca/DS/WAYF">
                 SAML2 SAML1
             </SSO>
 
