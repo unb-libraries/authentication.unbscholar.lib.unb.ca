@@ -4,20 +4,17 @@ dockworker:
     name: authentication.unbscholar.lib.unb.ca
     finish_marker: 'resuming normal operations'
     project_prefix:
-      - LIB
-      - RECORDS
+      - SCHOLAR
     shell: /bin/bash
     upstream_images:
       - httpd:2-bullseye
-    uuid: 3101
+    uuid: 3117
   deployment:
     environments:
       - prod
     workflow:
       source: dockworker
       type: deployment-workflow
-  drupal:
-    major: 9
   github:
     repo: authentication.unbscholar.lib.unb.ca
     owner: unb-libraries
