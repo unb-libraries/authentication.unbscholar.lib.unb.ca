@@ -36,21 +36,21 @@ spec:
           readinessProbe:
             httpGet:
               path: /Shibboleth.sso/Status
-              port: 80
+              port: 443
             initialDelaySeconds: 30
             timeoutSeconds: 3
             periodSeconds: 15
           livenessProbe:
             httpGet:
               path: /Shibboleth.sso/Status
-              port: 80
+              port: 443
             initialDelaySeconds: 30
             timeoutSeconds: 3
             periodSeconds: 15
           startupProbe:
             httpGet:
               path: /Shibboleth.sso/Status
-              port: 80
+              port: 443
             failureThreshold: 30
             periodSeconds: 10
           env:
@@ -61,9 +61,44 @@ spec:
           imagePullPolicy: Always
           ports:
             -
-              containerPort: 80
+              containerPort: 443
+          volumeMounts:
+            - name: star-lib-unb-ca-key
+              mountPath: "/usr/local/apache2/keys/star_lib_unb_ca.key"
+              subPath: "star_lib_unb_ca.key"
+              readOnly: true
+            - name: star-lib-unb-ca-crt
+              mountPath: "/usr/local/apache2/keys/star_lib_unb_ca.crt"
+              subPath: "star_lib_unb_ca.crt"
+              readOnly: true
+            - name: star-lib-unb-ca-ca-bundle
+              mountPath: "/usr/local/apache2/keys/star_lib_unb_ca.ca-bundle"
+              subPath: "star_lib_unb_ca.ca-bundle"
+              readOnly: true
       priorityClassName: high-priority-services
       imagePullSecrets:
         -
           name: github-container-registry-auth
       restartPolicy: Always
+      volumes:
+        - name: star-lib-unb-ca-key
+          secret:
+            secretName: star-lib-unb-ca-ssl
+            defaultMode: 256
+            items:
+              - key: star_lib_unb_ca.key
+                path: star_lib_unb_ca.key
+        - name: star-lib-unb-ca-crt
+          secret:
+            secretName: star-lib-unb-ca-ssl
+            defaultMode: 256
+            items:
+              - key: star_lib_unb_ca.crt
+                path: star_lib_unb_ca.crt
+        - name: star-lib-unb-ca-ca-bundle
+          secret:
+            secretName: star-lib-unb-ca-ssl
+            defaultMode: 256
+            items:
+              - key: star_lib_unb_ca.ca-bundle
+                path: star_lib_unb_ca.ca-bundle
