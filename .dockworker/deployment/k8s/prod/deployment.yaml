@@ -63,17 +63,17 @@ spec:
             -
               containerPort: 443
           volumeMounts:
-            - name: star-lib-unb-ca-key
-              mountPath: "/usr/local/apache2/keys/star_lib_unb_ca.key"
-              subPath: "star_lib_unb_ca.key"
+            - name: unbscholar-dspace-lib-unb-ca-key
+              mountPath: "/usr/local/apache2/keys/unbscholar_dspace_lib_unb_ca.key"
+              subPath: "unbscholar_dspace_lib_unb_ca.key"
               readOnly: true
-            - name: star-lib-unb-ca-crt
-              mountPath: "/usr/local/apache2/keys/star_lib_unb_ca.crt"
-              subPath: "star_lib_unb_ca.crt"
+            - name: unbscholar-dspace-lib-unb-ca-crt
+              mountPath: "/usr/local/apache2/keys/unbscholar_dspace_lib_unb_ca.crt"
+              subPath: "unbscholar_dspace_lib_unb_ca.crt"
               readOnly: true
-            - name: star-lib-unb-ca-ca-bundle
-              mountPath: "/usr/local/apache2/keys/star_lib_unb_ca.ca-bundle"
-              subPath: "star_lib_unb_ca.ca-bundle"
+            - name: unbscholar-dspace-lib-unb-ca-ca-bundle
+              mountPath: "/usr/local/apache2/keys/unbscholar_dspace_lib_unb_ca.ca-bundle"
+              subPath: "unbscholar_dspace_lib_unb_ca.ca-bundle"
               readOnly: true
       priorityClassName: high-priority-services
       imagePullSecrets:
@@ -81,24 +81,24 @@ spec:
           name: github-container-registry-auth
       restartPolicy: Always
       volumes:
-        - name: star-lib-unb-ca-key
+        - name: unbscholar-dspace-lib-unb-ca-key
           secret:
-            secretName: star-lib-unb-ca-ssl
+            secretName: unbscholar-dspace-lib-unb-ca-ssl
             defaultMode: 256
             items:
-              - key: star_lib_unb_ca.key
-                path: star_lib_unb_ca.key
-        - name: star-lib-unb-ca-crt
+              - key: unbscholar_dspace_lib_unb_ca.key
+                path: unbscholar_dspace_lib_unb_ca.key
+        - name: unbscholar-dspace-lib-unb-ca-crt
           secret:
-            secretName: star-lib-unb-ca-ssl
+            secretName: unbscholar-dspace-lib-unb-ca-ssl
             defaultMode: 256
             items:
-              - key: star_lib_unb_ca.crt
-                path: star_lib_unb_ca.crt
-        - name: star-lib-unb-ca-ca-bundle
+              - key: unbscholar_dspace_lib_unb_ca.crt
+                path: unbscholar_dspace_lib_unb_ca.crt
+        - name: unbscholar-dspace-lib-unb-ca-ca-bundle
           secret:
-            secretName: star-lib-unb-ca-ssl
+            secretName: unbscholar-dspace-lib-unb-ca-ssl
             defaultMode: 256
             items:
-              - key: star_lib_unb_ca.ca-bundle
-                path: star_lib_unb_ca.ca-bundle
+              - key: unbscholar_dspace_lib_unb_ca.ca-bundle
+                path: unbscholar_dspace_lib_unb_ca.ca-bundle
