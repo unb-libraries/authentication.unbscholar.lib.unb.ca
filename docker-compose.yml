@@ -16,4 +16,3 @@ services:
 networks:
   authentication.unbscholar.lib.unb.ca:
     name: authentication.unbscholar.lib.unb.ca
-
