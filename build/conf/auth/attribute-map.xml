@@ -58,8 +58,8 @@
            - SHIB-SURNAME
          These are set by mapping the respective IdP attribute (left hand side) to the header attribute (right hand side).
     -->
-    <Attribute name="id" id="SHIB-NETID"/>
-    <Attribute name="mail" id="SHIB-MAIL"/>
-    <Attribute name="givenName" id="SHIB-GIVENNAME"/>
-    <Attribute name="sn" id="SHIB-SURNAME"/>
+    <Attribute name="uid" id="SHIB-NETID" nameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic" />
+    <Attribute name="mail" id="SHIB-MAIL" nameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic" />
+    <Attribute name="givenName" id="SHIB-GIVENNAME" nameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic" />
+    <Attribute name="sn" id="SHIB-SURNAME" nameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic" />
 </Attributes>
