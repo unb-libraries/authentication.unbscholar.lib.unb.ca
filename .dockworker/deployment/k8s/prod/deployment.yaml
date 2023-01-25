@@ -37,6 +37,7 @@ spec:
             httpGet:
               path: /Shibboleth.sso/Status
               port: 443
+              scheme: HTTPS
             initialDelaySeconds: 30
             timeoutSeconds: 3
             periodSeconds: 15
@@ -44,6 +45,7 @@ spec:
             httpGet:
               path: /Shibboleth.sso/Status
               port: 443
+              scheme: HTTPS
             initialDelaySeconds: 30
             timeoutSeconds: 3
             periodSeconds: 15
@@ -51,6 +53,7 @@ spec:
             httpGet:
               path: /Shibboleth.sso/Status
               port: 443
+              scheme: HTTPS
             failureThreshold: 30
             periodSeconds: 10
           env:
