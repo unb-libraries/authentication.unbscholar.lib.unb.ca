@@ -42,10 +42,11 @@ spec:
             timeoutSeconds: 3
             periodSeconds: 15
           livenessProbe:
-            httpGet:
-              path: /Shibboleth.sso/Status
-              port: 443
-              scheme: HTTPS
+            exec:
+              command:
+                - bin/bash
+                - -c
+                - /scripts/checkliveness.sh
             initialDelaySeconds: 30
             timeoutSeconds: 3
             periodSeconds: 15
