@@ -29,7 +29,7 @@ spec:
         uri: authentication.unbscholar.lib.unb.ca
     spec:
       nodeSelector:
-        deployenv: prod
+        deploy_prod: 'true'
       containers:
         -
           name: authentication-unbscholar-lib-unb-ca
