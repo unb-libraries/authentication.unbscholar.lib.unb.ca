@@ -1,5 +1,4 @@
 FROM httpd:2-bullseye
-MAINTAINER UNB Libraries <libsupport@unb.ca>
 
 COPY build /build
 
@@ -27,4 +26,5 @@ LABEL ca.unb.lib.generator="apache2" \
   org.label-schema.vcs-ref=$VCS_REF \
   org.label-schema.vcs-url="https://github.com/unb-libraries/authentication.unbscholar.lib.unb.ca" \
   org.label-schema.version=$VERSION \
+  org.opencontainers.image.authors="UNB Libraries <libsupport@unb.ca>" \
   org.opencontainers.image.source="https://github.com/unb-libraries/authentication.unbscholar.lib.unb.ca"
