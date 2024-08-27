@@ -1,9 +1,9 @@
 services:
-  authentication.unbscholar.lib.unb.ca:
+  authentication-unbscholar-lib-unb-ca:
     build:
       context: .
     restart: unless-stopped
-    container_name: authentication.unbscholar.lib.unb.ca
+    container_name: authentication-unbscholar-lib-unb-ca
     expose:
       - "80"
     networks:

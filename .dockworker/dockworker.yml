@@ -1,26 +1,52 @@
 dockworker:
-  version: '5'
+  version: '6'
   application:
-    name: authentication.unbscholar.lib.unb.ca
-    finish_marker: 'resuming normal operations'
-    project_prefix:
-      - SCHOLAR
-    shell: /bin/bash
-    upstream_images:
-      - httpd:2-bullseye
-    uuid: 3117
-  deployment:
-    environments:
+    name: UNB Scholar Authentication Service
+    uri: https://authentication.unbscholar.lib.unb.ca
+    description: >
+      An apache proxy to authenticate users for UNB Scholar.
+    topics:
+      - auth
+      - apache
+    identifiers:
+      id: authentication.unbscholar.lib.unb.ca
+      slug: authentication-unbscholar-lib-unb-ca
+      short_slug: schoauth
+      uuid: 3117
+    framework:
+      name: Httpd
+      version: 2
+      startup_finished_marker: 'resuming normal operations'
+      endpoint:
+        name: http
+        port: 80
+        readiness_timeout: 15
+    license:
+      license: MIT
+      holder: University of New Brunswick Libraries
+    shell:
+      path: /bin/sh
+  endpoints:
+    env:
+      - dev
       - prod
-    workflow:
-      source: dockworker
-      type: deployment-workflow
-  github:
-    repo: authentication.unbscholar.lib.unb.ca
-    owner: unb-libraries
-  image:
-    push_branches:
-      - prod
-    name: ghcr.io/unb-libraries/authentication.unbscholar.lib.unb.ca
-    date_tag_image: true
-    repository: ghcr
+    deployments:
+      authentication-unbscholar-lib-unb-ca:
+        default: true
+        managed: true
+        name: authentication-unbscholar-lib-unb-ca
+  workflows:
+    vcs:
+      type: github
+      owner: unb-libraries
+      name: authentication.unbscholar.lib.unb.ca
+    jira:
+      project_keys:
+        - SCHOLAR
+    image:
+      name: ghcr.io/unb-libraries/authentication.unbscholar.lib.unb.ca
+      parent: httpd:2-bullseye
+      repository: GitHub
+      push-branches:
+        - dev
+        - prod
