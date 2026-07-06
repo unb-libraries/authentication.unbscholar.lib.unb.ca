@@ -18,6 +18,9 @@ RUN apt-get update && \
 
 ENTRYPOINT ["/scripts/run.sh"]
 
+ARG BUILD_DATE
+ARG VCS_REF
+ARG VERSION
 LABEL ca.unb.lib.generator="apache2" \
   org.label-schema.build-date=$BUILD_DATE \
   org.label-schema.description="authentication.unbscholar.lib.unb.ca is the outward facing proxy for shibboleth auth to unbscholar.lib.unb.ca." \
